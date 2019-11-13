@@ -1,22 +1,18 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 8080;
 const cors = require('cors');
 const mongoose = require('mongoose');
 
 const Question = require('./model/Question');
 
 mongoose
-  .connect(
-    process.env.MONGODB_URI,
-
-    {
-      useNewUrlParser: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
-      useUnifiedTopology: true
-    }
-  )
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+  })
   .then(() => {
     console.log('Db connected');
   })
